@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="maClasse">
+        <p class="maClasse">
+            <h2 id="titre" class="maClasse">Titre</h2>
+            <span id="span" style="color:red;">Yo, je suis là</span> 
+            <a id="monLien" style="color:red; font-size: 20px; background: yellow;" href="www.google.com">Go to google</a>
+            <img id="image" src="monimage.jpeg">
+            <h3 id="monh3" class="fast">Big rich town</h3>
+        </p>
+    </div>
+    <script>
+        var element = document.getElementById('titre');
+        console.log(element.innerHTML);
+        element.innerHTML = 'mon nouveau titre';
+        console.log(element.innerHTML); 
+        
+        const elements = document.getElementsByClassName("maClasse");
+        console.log(elements);
+
+        const element1 = document.getElementsByTagName("p");
+        console.log(element1);
+
+        const element2 = document.querySelector(".maClasse"); //retourrne juste le premier élément coorespondant
+        console.log(element2);
+
+        const element3 = document.querySelectorAll(".maClasse"); //retourne tout les éléments correspondant
+        console.log(element3);
+
+        //modification d"un élément
+        const elementText = document.getElementById("titre");
+        elementText.textContent = "Nouveau contenu texte";
+        const elementp = document.querySelector("span");
+        elementp.textContent = "Yo yo yo";
+
+        //modification et ajout d'un élément
+        const elementA = document.getElementById("titre");
+        elementA.innerHTML = "<h1> Nouveau titre </h1>";
+
+        //modification des attributs
+        const elementAtt = document.getElementById("titre");
+        elementAtt.setAttribute("class", "nouvelleClasse");
+
+        //suppression d'un attribut
+        const elementSup = document.getElementById("titre");
+        elementSup.removeAttribute("class");
+
+        //Modification des attributs spécifiques comme href, src
+        const link = document.getElementById("monLien");
+        link.href = "https://www.example.com";
+
+        //Modification des attributs sources d'images
+        const img = document.getElementById("image");
+        img.src = "newimage.jpg";
+
+        //Modification propriété du style CSS
+        const propriété = document.getElementById("span");
+        propriété.style.color = "blue";
+        
+        //Ajout ou suppression de classe CSS
+        const addsupr = document.getElementById("titre");
+        addsupr.className = "nouvelle"; // Remplace toutes les classes existantes
+        addsupr.classList.add("autrenouvelleClasse"); // Ajoute une classe
+        addsupr.classList.remove("nouvelle"); // Supprime une classe
+
+        //Modification plusieurs éléments css à la fois
+        const modif = document.getElementById("monLien");
+        modif.style.cssText = "color: black; font-size: 150px; background: gray;";
+
+        //Ajout et ou Suppresion d'éléments en fonction de l'existance de l'élément
+        const toogle = document.getElementById("monh3");
+        toogle.classList.toggle("nofast");
+
+    
+    </script>
+</body>
+</html>
