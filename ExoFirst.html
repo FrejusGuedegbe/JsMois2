@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button id="change">Changer la couleur de fond du div</button>
+    <div id="elementChange">Cet élément change de couleur</div>
+
+<br>
+
+    <ul id="List">
+        <li class="li">Élément 1</li>
+        <li class="li">Élément 2</li>
+        <li class="li">Élément 3</li>
+        <li class="li">Élément 4</li>
+        <li class="li">Élément 5</li>
+    </ul>
+
+<br>
+
+    <form id="Form">
+        <input type="text" id="textInput">
+        <button type="button" id="submit">Envoyer</button>
+    </form>
+    <p id="text"></p>
+
+<br>
+
+    <div id="galerie">
+        <img class="image" src="image1.jpg">
+        <img class="image" src="image2.jpg">
+        <img class="image" src="image3.jpg">
+        <img class="image" src="image4.jpg">
+    </div>
+
+<br>
+
+    <div id="MonTexte">Je suis un texte qui s'affiche et qui se cache</div>
+    <button id="cache">Cacher</button>
+    <button id="affiche">Afficher</button>
+
+<br><br><br>
+
+    <ul class="navbar">
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#">À propos</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+    <style>
+        .navbar {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .navbar li {
+        float: left;
+        }
+
+        .navbar li a {
+            display: block;
+            padding: 8px 16px;
+        }
+    </style>
+
+<br><br><br>
+
+    <button id="Ajouter">Ajouter</button>
+    <ul id="maListe">
+
+    </ul>
+
+
+<br><br><br>
+
+    <input type="text" id="resultat">
+    <br>
+    <button id="btn1">1</button>
+    <button id="btn2">2</button>
+    <button id="btn3">3</button>
+    <button id="btn4">4</button>
+    <button id="btn5">5</button>
+    <button id="btn6">6</button>
+    <button id="btn7">7</button>
+    <button id="btn8">8</button>
+    <button id="btn9">9</button>
+    <button id="btn0">0</button>
+    <br>
+    <button id="btnPlus">+</button>
+    <button id="btnMoins">-</button>
+    <button id="btnMult">*</button>
+    <button id="btnDiv">/</button>
+    <button id="btnEquals">=</button>
+    <button id="btnClear">Effacer</button>
+
+
+<br><br><br>
+
+    <select id="monMenu">
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+        <option value="option3">Option 3</option>
+    </select>
+    <p id="contenuOption1" style="display: none;">Contenu de l'option 1</p>
+    <p id="contenuOption2" style="display: none;">Contenu de l'option 2</p>
+    <p id="contenuOption3" style="display: none;">Contenu de l'option 3</p>
+
+<br><br><br>
+
+    <button id="openModalButton">Ouvrir la boîte modale</button>
+
+    <div id="myModal" class="modal">
+    <div class="modal-content">
+        <a class="close">Fermer</a>
+        <h2>Ma Boîte Modale</h2>
+        <p>JOhayo ! e m'appelle Parking. Enchanté...</p>
+    </div>
+    </div>
+
+
+    <script>
+
+        //Créez un bouton et, lorsque l'utilisateur clique dessus, changez la couleur de fond d'un élément spécifique.
+
+            var change = document.getElementById("change");
+            var elementChange = document.getElementById("elementChange");
+            change.onclick = function() {
+                elementChange.style.backgroundColor = "red";
+            };
+
+        //Créez une liste non ordonnée (ul) contenant cinq éléments (li). Ajoutez une classe CSS 
+        // à chaque élément de la liste, alternant les couleurs de fond
+
+            var List = document.getElementById("myList");
+            var li = document.querySelectorAll(".li");
+
+            for (var i = 0; i < li.length; i++) {
+                if (i % 2 === 0) {
+                    li[i].style.backgroundColor = "gray";
+                } else {
+                    li[i].style.backgroundColor = "blue";
+                }
+            }
+    
+
+        //Ajoutez un formulaire avec un champ de texte et un bouton. Lorsque l'utilisateur clique sur le bouton, 
+        // récupérez la valeur du champ de texte et affichez-la dans un paragraphe en dessous du formulaire.
+    
+            var form = document.getElementById("Form");
+            var textInput = document.getElementById("textInput");
+            var text = document.getElementById("text");
+            var submit = document.getElementById("submit");
+
+            submit.addEventListener("click", function() {
+                var textValue = textInput.value;
+                text.textContent = textValue;
+                textInput.value = "";
+            });
+
+
+        //Créez une galerie d'images. Lorsque l'utilisateur clique sur une image, 
+        // agrandissez-la et affichez-la en plein écran.
+            
+            var galerie = document.getElementById("galerie");
+            var images = document.getElementsByClassName("image");
+
+
+        // Créez un bouton "Cacher" et un bouton "Afficher". Lorsque l'utilisateur clique sur "Cacher", 
+        // masquez un élément spécifique en définissant sa propriété CSS "display" sur "none". Lorsqu'il clique sur "Afficher", rétablissez l'affichage de l'élément.
+
+            var cache= document.getElementById("cache");
+            var affiche = document.getElementById("affiche");
+            var MonTexte = document.getElementById("MonTexte");
+
+            cache.addEventListener("click", function() {
+                MonTexte.style.display = "none";
+            });
+
+            affiche.addEventListener("click", function() {
+                MonTexte.style.display = "block";
+            });
+
+        //Créez une barre de navigation horizontale avec des liens. 
+        // Lorsque l'utilisateur survole un lien, changez sa couleur de fond.
+
+            var lien = document.getElementsByTagName("a");
+
+            for (var i = 0; i < lien.length; i++) {
+                lien[i].addEventListener("mouseover", function() {
+                    this.style.backgroundColor = "red";
+                });
+
+                lien[i].addEventListener("mouseout", function() {
+                    this.style.backgroundColor = "";
+                });
+            }
+            
+
+        //Créez un bouton "Ajouter" et une liste vide. Lorsque l'utilisateur clique sur "Ajouter", 
+        // ajoutez un élément à la liste avec du contenu texte
+
+            var Ajouter = document.getElementById("Ajouter");
+            var maListe = document.getElementById("maListe");
+
+            Ajouter.addEventListener("click", function() {
+                var nouvelElement = document.createElement("li");
+                var texte = document.createTextNode("Nouvel élément"); //création de texte contenant "Nouvel élément" et ajout du texte comme enfant de l'élément <li>
+                nouvelElement.appendChild(texte);
+                maListe.appendChild(nouvelElement);
+            });
+
+
+        //Créez une calculatrice simple avec des boutons numériques et des boutons d'opération (+, -, *, /). 
+        // Affichez le résultat des calculs dans un élément de texte.
+
+            var resultatElement = document.getElementById("resultat");
+            var btn1 = document.getElementById("btn1");
+            var btn2 = document.getElementById("btn2");
+            var btn3 = document.getElementById("btn3");
+            var btn4 = document.getElementById("btn4");
+            var btn5 = document.getElementById("btn5");
+            var btn6 = document.getElementById("btn6");
+            var btn7 = document.getElementById("btn7");
+            var btn8 = document.getElementById("btn8");
+            var btn9 = document.getElementById("btn9");
+            var btn0 = document.getElementById("btn0");
+            var btnPlus = document.getElementById("btnPlus");
+            var btnMoins = document.getElementById("btnMoins");
+            var btnMult = document.getElementById("btnMult");
+            var btnDiv = document.getElementById("btnDiv");
+            var btnEquals = document.getElementById("btnEquals");
+            var btnClear = document.getElementById("btnClear");
+
+            btn1.addEventListener("click", function() {
+                ajouterChiffre("1");
+            });
+
+            btn2.addEventListener("click", function() {
+                ajouterChiffre("2");
+            });
+
+            btn3.addEventListener("click", function() {
+                ajouterChiffre("3");
+            });
+
+            btn4.addEventListener("click", function() {
+                ajouterChiffre("4");
+            });
+
+            btn5.addEventListener("click", function() {
+                ajouterChiffre("5");
+            });
+
+            btn6.addEventListener("click", function() {
+                ajouterChiffre("6");
+            });
+
+            btn7.addEventListener("click", function() {
+                ajouterChiffre("7");
+            });
+
+            btn8.addEventListener("click", function() {
+                ajouterChiffre("8");
+            });
+
+            btn9.addEventListener("click", function() {
+                ajouterChiffre("9");
+            });
+
+            btn0.addEventListener("click", function() {
+                ajouterChiffre("0");
+            });
+
+            btnPlus.addEventListener("click", function() {
+                ajouterOperation("+");
+            });
+
+            btnMoins.addEventListener("click", function() {
+                ajouterOperation("-");
+            });
+
+            btnMult.addEventListener("click", function() {
+                ajouterOperation("*");
+            });
+
+            btnDiv.addEventListener("click", function() {
+                ajouterOperation("/");
+            });
+
+            btnEquals.addEventListener("click", function() {
+                calculer();
+            });
+
+            btnClear.addEventListener("click", function() {
+                effacer();
+            });
+
+            function ajouterChiffre(chiffre) {
+                resultatElement.value += chiffre;
+            }
+
+            function ajouterOperation(operation) {
+                resultatElement.value += operation;
+            }
+
+            function calculer() {
+                var expression = resultatElement.value;
+                var resultat = eval(expression);
+                resultatElement.value = resultat;
+            }
+
+            function effacer() {
+                resultatElement.value = "";
+            }
+
+    //Créez un menu déroulant (select) avec des options. Lorsque l'utilisateur sélectionne une option, 
+    // affichez un paragraphe correspondant avec du contenu spécifique.
+
+        var monMenu = document.getElementById("monMenu");
+        var contenuOption1 = document.getElementById("contenuOption1");
+        var contenuOption2 = document.getElementById("contenuOption2");
+        var contenuOption3 = document.getElementById("contenuOption3");
+        
+        monMenu.addEventListener("change", function() {
+            contenuOption1.style.display = "none";
+            contenuOption2.style.display = "none";
+            contenuOption3.style.display = "none";
+            
+            // Afficher le paragraphe correspondant à l'option sélectionnée
+            var optionSelectionnee = monMenu.value;
+            if (optionSelectionnee === "option1") {
+                contenuOption1.style.display = "block";
+            } else if (optionSelectionnee === "option2") {
+                contenuOption2.style.display = "block";
+            } else if (optionSelectionnee === "option3") {
+                contenuOption3.style.display = "block";
+            }
+        });
+            
+
+    //Créez une boîte modale qui s'affiche lorsque l'utilisateur clique sur un bouton. La boîte modale doit contenir 
+    // du contenu HTML personnalisé et un bouton de fermeture.
+        
+        var modal = document.getElementById("myModal");
+        var openModalButton = document.getElementById("openModalButton");
+        var closeButton = document.getElementsByClassName("close")[0];
+
+        function openModal() {
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        openModalButton.addEventListener("click", openModal);
+        closeButton.addEventListener("click", closeModal);
+
+        
+    </script>
+
+
+</body>
+</html>
