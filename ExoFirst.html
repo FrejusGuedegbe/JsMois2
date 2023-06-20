@@ -32,10 +32,10 @@
 <br>
 
     <div id="galerie">
-        <img class="image" src="image1.jpg">
-        <img class="image" src="image2.jpg">
-        <img class="image" src="image3.jpg">
-        <img class="image" src="image4.jpg">
+        <img class="image" style="width: 50px; height: 50px" src="Capture d’écran (1).png"> 
+        <img class="image"  style="width: 50px; height: 50px" src="GIT 2.png">
+        <img class="image"  style="width: 50px; height: 50px" src="GIT.png">
+        <img class="image"  style="width: 50px; height: 50px" src="HxH.png">
     </div>
 
 <br>
@@ -166,10 +166,16 @@
 
 
         //Créez une galerie d'images. Lorsque l'utilisateur clique sur une image, 
-        // agrandissez-la et affichez-la en plein écran.
+        // agrandissez-la et affichez-la en plein écran. 
             
             var galerie = document.getElementById("galerie");
-            var images = document.getElementsByClassName("image");
+            const images = document.querySelectorAll(".image");
+
+            images.forEach(function (image) {
+                image.addEventListener("click", function () {
+                image.classList.toggle("fullscreen");
+                });
+            });
 
 
         // Créez un bouton "Cacher" et un bouton "Afficher". Lorsque l'utilisateur clique sur "Cacher", 
@@ -365,6 +371,16 @@
 
         
     </script>
+
+    
+    <style>
+        .fullscreen {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            z-index: 9999;
+        }
+    </style>
 
 
 </body>
