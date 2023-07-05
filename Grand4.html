@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Création d'éléments dynamiques</title>
+    <style>
+        .myclass{
+           background-color: aqua; 
+        }
+    </style>
+</head>
+
+<body>
+</body>
+
+<script>
+
+    // Création de l'élément <div>
+    var divElement = document.createElement('div');
+
+    // Ajout de contenu à l'élément <div>
+    divElement.textContent = 'Ceci est un élément div créé avec JavaScript';
+    divElement.style.color = 'blue';
+    divElement.classList.add('myclass');
+
+    // Ajout de l'élément <div> au corps du document
+    document.body.appendChild(divElement);
+
+</script>
+
+</html>

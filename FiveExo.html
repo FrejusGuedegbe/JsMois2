@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Créez un bouton dans votre page HTML avec l'ID "myButton" 
+    Lorsque le bouton est cliqué, affichez un message dans la console. -->
+        <h1>Bouton de clic</h1>
+        <button id="myButton">Parking</button>
+
+    <!-- - Ajoutez un élément de texte dans votre page HTML avec l'ID "myText".
+    - Créez un bouton avec l'ID "changeColorButton".
+    - Lorsque le bouton est cliqué, changez la couleur du texte de l'élément "myText" en une couleur aléatoire. -->
+        <h1>Changement de couleur</h1>
+        <p id="myText">
+            Je m'appelle Parking.
+        </p>
+        <button id="changeColorButton">Bouton</button>
+
+    <!-- Créez un formulaire dans votre page HTML avec un champ de saisie (input) et un bouton de soumission (submit).
+    - Lorsque le formulaire est soumis, vérifiez si le champ de saisie est vide.
+    - Si le champ est vide, affichez un message d'erreur dans une zone dédiée.
+    - Si le champ n'est pas vide, affichez un message de succès dans une zone dédiée. -->
+        <h1>Formulaire de saisie</h1>
+
+        <form id="myForm">
+        <input type="text" id="myInput" placeholder="Entrez votre texte">
+        <input type="submit" value="Soumettre">
+        </form>
+    
+        <div id="messageContainer"></div>
+
+ 
+    <!-- Créez une div dans votre page HTML avec l'ID "mousePosition".
+    - Lorsque la souris se déplace à l'intérieur de cette div, affichez les coordonnées de la position 
+        actuelle de la souris (X et Y) à l'intérieur de cette div. -->
+            <h1>Position de la souris</h1>
+
+            <div id="mousePosition"></div>
+            <style>
+                #mousePosition {
+                    width: 100px;
+                    height: 50px;
+                    border: 1px solid black;
+                    padding: 10px;
+                    margin-top: 20px;
+                }
+            </style>
+
+    
+    <!-- - Ajoutez un champ de saisie (input) dans votre page HTML avec l'ID "myInput".
+    - Lorsque vous appuyez sur une touche dans ce champ, affichez la valeur de la touche dans la console. -->
+            <h1>Gestion du clavier</h1>
+            <input type="text" id="myInput2" placeholder="Saisissez une touche">
+
+    <script>
+
+        var change = document.getElementById("myButton");
+        change.onclick = function() {
+            console.log('Yo ! tu as cliqué !')
+        };
+
+
+        document.getElementById('changeColorButton').addEventListener('click', function() {
+        var text = document.getElementById("myText");
+        // var randomColor = 'blue';
+        var table = ['red','green','yellow','blue'];
+            text.style.color = table[Math.floor(Math.random() * table.length)];
+        });
+        
+
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var input = document.getElementById('myInput');
+            var messageContainer = document.getElementById('messageContainer');
+
+            if (input.value === '') {
+                messageContainer.textContent = 'Erreur : le champ de saisie est vide.';
+                messageContainer.style.color = 'red';
+            } else {
+                messageContainer.textContent = 'Succès : le formulaire a été soumis avec succès.';
+                messageContainer.style.color = 'green';
+
+                input.value = '';
+            }
+        });
+
+
+        document.getElementById('mousePosition').addEventListener('mousemove', function(event) {
+            // var x = event.clientX; 
+            // var y = event.clientY; 
+            var x = event.offsetX;
+            var y = event.offsetY;
+            var mousePositionElement = document.getElementById('mousePosition');
+            mousePositionElement.textContent = 'Position : ' + x + ' (X), ' + y + ' (Y)';
+        });
+
+        
+        document.getElementById('myInput2').addEventListener('keydown', function(event) {
+            var key = event.key;
+            console.log('Touche pressée : ' + key);
+        });
+
+    </script>
+</body>
+</html>
